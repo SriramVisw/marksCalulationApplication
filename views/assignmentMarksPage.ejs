@@ -4,69 +4,37 @@
 
 <% if (noOfAssessments==2){ %>
 <h5>Assessment 1:</h5>
+<div>
 <form action="/finalPage" method="GET">
   <li>
     Percentage allocated for Assessment 1:
-    <input
-      type="number"
-      name="percentageAllocatedAssignment1"
-      min="1"
-      max="100"
-      required
-    />
-  </li>
-  <li>
-    Amount of marks obtained for Assessment 1:
-    <input
-      type="number"
-      name="marksObtainedAssignment1"
-      min="1"
-      max="100"
-      required
-    />
+    <input type="number" name="percAllocatedAss1" min="1" max="100" required />
   </li>
   <li>
     Total marks allocated for Assessment 1:
-    <input
-      type="number"
-      name="marksObtainedAssignment1"
-      min="1"
-      max="100"
-      required
-    />
+    <input type="number" name="marksAllocatedAss1" min="1" max="100" required />
+  </li>
+  <li>
+    Amount of marks obtained for Assessment 1:
+    <input type="number" name="marksObtainedAss1" min="1" max="100" required />
   </li>
 
   <h5>Assessment 2:</h5>
   <li>
     Percentage allocated for Assessment 2:
-    <input
-      type="number"
-      name="percentageAllocatedAssignment2"
-      min="1"
-      max="100"
-      required
-    />
+    <input type="number" name="percAllocatedAss2" min="1" max="100" required />
   </li>
-  <li>
-    Amount of marks obtained for Assessment 2:
-    <input
-      type="number"
-      name="marksObtainedAssignment2"
-      min="1"
-      max="100"
-      required
-    />
-  </li>
+
   <li>
     Total marks allocated for Assessment 2:
-    <input
-      type="number"
-      name="marksObtainedAssignment2"
-      min="1"
-      max="100"
-      required
-    />
+    <input type="number" name="marksAllocatedAss2" min="1" max="100" required />
   </li>
+
+  <li>
+    Amount of marks obtained for Assessment 2:
+    <input type="number" name="marksObtainedAss2" min="1" max="100" required />
+  </li>
+</div>
 
   <div>
     Your desired final marks for the unit, <%=unitCode %> :

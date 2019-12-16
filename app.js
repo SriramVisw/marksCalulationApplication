@@ -30,5 +30,12 @@ app.listen(PORT, function() {
 });
 
 function calculateMarks(passedObject) {
-  console.log(passedObject.percentageAllocatedAssignment1);
+  //calculating the noOfassessments by finding the no of query parameters and subtracting 1 for the
+  // desired marks input. Finally dividing the value by 3 (for each of the assessment infos) gives us
+  // the no. of assessments
+  var noOfVariables = Object.keys(passedObject).length - 1;
+  var noOfAssessments = noOfVariables / 3;
+  console.log(noOfAssessments);
+
+  // do the calculations and return the object back to the calling method
 }
