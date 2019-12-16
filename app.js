@@ -19,6 +19,7 @@ app.get("/form", function(req, res) {
 
 app.get("/finalPage", function(req, res) {
   //need to calculate the marks based on all those parameters using if statements
+  calculateMarks(req.query);
   var marksRequired = req.query.marksRequired;
   res.render("finalPage", { marksRequired: marksRequired });
 });
@@ -27,3 +28,7 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, function() {
   console.log("The server has started!");
 });
+
+function calculateMarks(passedObject) {
+  console.log(passedObject.percentageAllocatedAssignment1);
+}
