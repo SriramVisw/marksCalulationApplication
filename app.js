@@ -1,6 +1,7 @@
 var express = require("express");
 var app = express();
 app.set("view engine", "ejs");
+require("locus");
 
 app.get("/", function(req, res) {
   res.render("landingPage");
@@ -35,7 +36,38 @@ function calculateMarks(passedObject) {
   // the no. of assessments
   var noOfVariables = Object.keys(passedObject).length - 1;
   var noOfAssessments = noOfVariables / 3;
-  console.log(noOfAssessments);
+
+  var arr = new Array(noOfAssessments);
+
+  for (var i = 0; i < arr.length; i++) {
+    arr[i] = new Array(3);
+  }
+
+  for (var i = 0; i < noOfVariables; i += 3) {
+    console.log(arr[i]);
+  }
+  var row = 0;
+  var column = 0;
+  var loopCount = 0;
+  for (const key in passedObject) {
+    if (loopCount == noOfVariables) {
+      break;
+    }
+
+    if (row == 3) {
+      column = column + 1;
+      row = 0;
+    }
+
+    arr[column][row] = passedObject[key];
+
+    row = row + 1;
+    loopCount = loopCount + 1;
+  }
+
+  console.log(arr);
+
+  //console.log(noOfAssessments);
 
   // do the calculations and return the object back to the calling method
 }
