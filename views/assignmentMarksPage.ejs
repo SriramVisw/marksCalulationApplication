@@ -1,5 +1,5 @@
 <h1>
-  The number of assessments in <%=unitCode %> is <%= noOfAssessments %>
+  The number of in-semester assessments in <%=unitCode %> is <%= noOfAssessments %>
 </h1>
 
 <% if (noOfAssessments==2){ %>
@@ -12,11 +12,11 @@
   </li>
   <li>
     Total marks allocated for Assessment 1:
-    <input type="number" name="marksAllocatedAss1" min="1" max="100" required />
+    <input type="number" name="marksAllocatedAss1" min="1"  required />
   </li>
   <li>
     Amount of marks obtained for Assessment 1:
-    <input type="number" name="marksObtainedAss1" min="1" max="100" required />
+    <input type="number" name="marksObtainedAss1" min="1"  required />
   </li>
 
   <h5>Assessment 2:</h5>
@@ -27,14 +27,19 @@
 
   <li>
     Total marks allocated for Assessment 2:
-    <input type="number" name="marksAllocatedAss2" min="1" max="100" required />
+    <input type="number" name="marksAllocatedAss2" min="1"  required />
   </li>
 
   <li>
     Amount of marks obtained for Assessment 2:
-    <input type="number" name="marksObtainedAss2" min="1" max="100" required />
+    <input type="number" name="marksObtainedAss2" min="1"  required />
   </li>
 </div>
+
+  <div>
+    What is the total in-semester assessments worth in Percentage :
+    <input type="number" name="inSemesterPerc" min="1" max="100" required />
+  </div>
 
   <div>
     Your desired final marks for the unit, <%=unitCode %> :

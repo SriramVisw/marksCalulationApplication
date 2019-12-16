@@ -20,9 +20,8 @@ app.get("/form", function(req, res) {
 
 app.get("/finalPage", function(req, res) {
   //need to calculate the marks based on all those parameters using if statements
-  calculateMarks(req.query);
-  var marksRequired = req.query.marksRequired;
-  res.render("finalPage", { marksRequired: marksRequired });
+  var marksArray = calculateMarks(req.query);
+  res.render("finalPage", { marksArray: marksArray });
 });
 
 const PORT = process.env.PORT || 5000;
@@ -31,11 +30,14 @@ app.listen(PORT, function() {
 });
 
 function calculateMarks(passedObject) {
-  //calculating the noOfassessments by finding the no of query parameters and subtracting 1 for the
-  // desired marks input. Finally dividing the value by 3 (for each of the assessment infos) gives us
+  //calculating the noOfassessments by finding the no of query parameters and subtracting 2 for the
+  // desired marks input and the in semester percentage input. Finally dividing the value by 3 (for each of the assessment infos) gives us
   // the no. of assessments
-  var noOfVariables = Object.keys(passedObject).length - 1;
+  var noOfVariables = Object.keys(passedObject).length - 2;
   var noOfAssessments = noOfVariables / 3;
+
+  totalInSemesterPerc = parseInt(passedObject.inSemesterPerc, 10);
+  exam_marks = 100 - totalInSemesterPerc;
 
   var arr = new Array(noOfAssessments);
 
@@ -43,9 +45,6 @@ function calculateMarks(passedObject) {
     arr[i] = new Array(3);
   }
 
-  for (var i = 0; i < noOfVariables; i += 3) {
-    console.log(arr[i]);
-  }
   var row = 0;
   var column = 0;
   var loopCount = 0;
@@ -60,14 +59,61 @@ function calculateMarks(passedObject) {
     }
 
     arr[column][row] = passedObject[key];
-
     row = row + 1;
     loopCount = loopCount + 1;
   }
 
-  console.log(arr);
+  var your_total_marks = 0;
+  var total_in_semester_perc = 0;
 
-  //console.log(noOfAssessments);
+  for (var i = 0; i < noOfAssessments; i = i + 1) {
+    your_total_marks =
+      your_total_marks + (arr[i][2] / arr[i][1]) * (arr[i][0] / 100);
+    total_in_semester_perc = arr[i][0];
+  }
+
+  your_total_marks = your_total_marks * 100;
+
+  var desired_marks = parseInt(passedObject.desiredMarks, 10);
+
+  var marksArray = [];
 
   // do the calculations and return the object back to the calling method
+  marksArray.push(
+    Math.round(
+      ((desired_marks / 100 - your_total_marks / 100) /
+        ((100 - totalInSemesterPerc) / 100)) *
+        100
+    )
+  );
+  marksArray.push(
+    Math.round(
+      ((80 / 100 - your_total_marks / 100) /
+        ((100 - totalInSemesterPerc) / 100)) *
+        100
+    )
+  );
+  marksArray.push(
+    Math.round(
+      ((70 / 100 - your_total_marks / 100) /
+        ((100 - totalInSemesterPerc) / 100)) *
+        100
+    )
+  );
+  marksArray.push(
+    Math.round(
+      ((60 / 100 - your_total_marks / 100) /
+        ((100 - totalInSemesterPerc) / 100)) *
+        100
+    )
+  );
+  marksArray.push(
+    Math.round(
+      ((50 / 100 - your_total_marks / 100) /
+        ((100 - totalInSemesterPerc) / 100)) *
+        100
+    )
+  );
+
+  return marksArray;
 }
