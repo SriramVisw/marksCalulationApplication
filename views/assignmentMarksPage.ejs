@@ -1,5 +1,5 @@
 <h1>
-  The number of in-semester assessments in <%=unitCode %> is <%= noOfAssessments
+  Kindly fill out the details below:
   %>
 </h1>
 
@@ -249,4 +249,461 @@
   <input type="submit" />
 </form>
 
-<%} %>
+  <% } else if (noOfAssessments==5){ %>
+
+  <form action="/finalPage" method="GET">
+  <div>
+  <h5>Assessment 1:</h5>
+  <li>
+    Percentage allocated for Assessment 1:
+    <input
+      type="number"
+      name="percAllocatedAss1"
+      min="1"
+      max="100"
+      required
+    />
+  </li>
+  <li>
+    Total marks allocated for Assessment 1:
+    <input type="number" name="marksAllocatedAss1" min="1" required />
+  </li>
+  <li>
+    Amount of marks obtained for Assessment 1:
+    <input type="number" name="marksObtainedAss1" min="1" required />
+  </li>
+
+  <h5>Assessment 2:</h5>
+  <li>
+    Percentage allocated for Assessment 2:
+    <input
+      type="number"
+      name="percAllocatedAss2"
+      min="1"
+      max="100"
+      required
+    />
+  </li>
+
+  <li>
+    Total marks allocated for Assessment 2:
+    <input type="number" name="marksAllocatedAss2" min="1" required />
+  </li>
+
+  <li>
+    Amount of marks obtained for Assessment 2:
+    <input type="number" name="marksObtainedAss2" min="1" required />
+  </li>
+
+  <h5>Assessment 3:</h5>
+  <li>
+    Percentage allocated for Assessment 3:
+    <input
+      type="number"
+      name="percAllocatedAss3"
+      min="1"
+      max="100"
+      required
+    />
+  </li>
+
+  <li>
+    Total marks allocated for Assessment 3:
+    <input type="number" name="marksAllocatedAss3" min="1" required />
+  </li>
+
+  <li>
+    Amount of marks obtained for Assessment 3:
+    <input type="number" name="marksObtainedAss3" min="1" required />
+  </li>
+
+  <h5>Assessment 4:</h5>
+  <li>
+    Percentage allocated for Assessment 4:
+    <input
+      type="number"
+      name="percAllocatedAss4"
+      min="1"
+      max="100"
+      required
+    />
+  </li>
+
+  <li>
+    Total marks allocated for Assessment 4:
+    <input type="number" name="marksAllocatedAss4" min="1" required />
+  </li>
+
+  <li>
+    Amount of marks obtained for Assessment 4:
+    <input type="number" name="marksObtainedAss4" min="1" required />
+  </li>
+  </div>
+
+  <h5>Assessment 5:</h5>
+  <li>
+    Percentage allocated for Assessment 5:
+    <input
+      type="number"
+      name="percAllocatedAss5"
+      min="1"
+      max="100"
+      required
+    />
+  </li>
+
+  <li>
+    Total marks allocated for Assessment 5:
+    <input type="number" name="marksAllocatedAss5" min="1" required />
+  </li>
+
+  <li>
+    Amount of marks obtained for Assessment 5:
+    <input type="number" name="marksObtainedAss5" min="1" required />
+  </li>
+  </div>
+
+  <br />
+  <div>
+  What is the total in-semester assessments worth in Percentage :
+  <input type="number" name="inSemesterPerc" min="1" max="100" required />
+  </div>
+
+  <div>
+  Your desired final marks for the unit, <%=unitCode %> :
+  <input type="number" name="desiredMarks" min="1" max="100" required />
+  </div>
+
+  <br />
+  <input type="submit" />
+  </form>
+
+  <% } else if (noOfAssessments==6){ %>
+
+  <form action="/finalPage" method="GET">
+  <div>
+    <h5>Assessment 1:</h5>
+    <li>
+      Percentage allocated for Assessment 1:
+      <input
+        type="number"
+        name="percAllocatedAss1"
+        min="1"
+        max="100"
+        required
+      />
+    </li>
+    <li>
+      Total marks allocated for Assessment 1:
+      <input type="number" name="marksAllocatedAss1" min="1" required />
+    </li>
+    <li>
+      Amount of marks obtained for Assessment 1:
+      <input type="number" name="marksObtainedAss1" min="1" required />
+    </li>
+
+    <h5>Assessment 2:</h5>
+    <li>
+      Percentage allocated for Assessment 2:
+      <input
+        type="number"
+        name="percAllocatedAss2"
+        min="1"
+        max="100"
+        required
+      />
+    </li>
+
+    <li>
+      Total marks allocated for Assessment 2:
+      <input type="number" name="marksAllocatedAss2" min="1" required />
+    </li>
+
+    <li>
+      Amount of marks obtained for Assessment 2:
+      <input type="number" name="marksObtainedAss2" min="1" required />
+    </li>
+
+    <h5>Assessment 3:</h5>
+    <li>
+      Percentage allocated for Assessment 3:
+      <input
+        type="number"
+        name="percAllocatedAss3"
+        min="1"
+        max="100"
+        required
+      />
+    </li>
+
+    <li>
+      Total marks allocated for Assessment 3:
+      <input type="number" name="marksAllocatedAss3" min="1" required />
+    </li>
+
+    <li>
+      Amount of marks obtained for Assessment 3:
+      <input type="number" name="marksObtainedAss3" min="1" required />
+    </li>
+
+    <h5>Assessment 4:</h5>
+    <li>
+      Percentage allocated for Assessment 4:
+      <input
+        type="number"
+        name="percAllocatedAss4"
+        min="1"
+        max="100"
+        required
+      />
+    </li>
+
+    <li>
+      Total marks allocated for Assessment 4:
+      <input type="number" name="marksAllocatedAss4" min="1" required />
+    </li>
+
+    <li>
+      Amount of marks obtained for Assessment 4:
+      <input type="number" name="marksObtainedAss4" min="1" required />
+    </li>
+  </div>
+
+  <h5>Assessment 5:</h5>
+    <li>
+      Percentage allocated for Assessment 5:
+      <input
+        type="number"
+        name="percAllocatedAss5"
+        min="1"
+        max="100"
+        required
+      />
+    </li>
+
+    <li>
+      Total marks allocated for Assessment 5:
+      <input type="number" name="marksAllocatedAss5" min="1" required />
+    </li>
+
+    <li>
+      Amount of marks obtained for Assessment 5:
+      <input type="number" name="marksObtainedAss5" min="1" required />
+    </li>
+  </div>
+
+  <h5>Assessment 6:</h5>
+    <li>
+      Percentage allocated for Assessment 6:
+      <input
+        type="number"
+        name="percAllocatedAss6"
+        min="1"
+        max="100"
+        required
+      />
+    </li>
+
+    <li>
+      Total marks allocated for Assessment 6:
+      <input type="number" name="marksAllocatedAss6" min="1" required />
+    </li>
+
+    <li>
+      Amount of marks obtained for Assessment 6:
+      <input type="number" name="marksObtainedAss6" min="1" required />
+    </li>
+  </div>
+
+  <br />
+  <div>
+    What is the total in-semester assessments worth in Percentage :
+    <input type="number" name="inSemesterPerc" min="1" max="100" required />
+  </div>
+
+  <div>
+    Your desired final marks for the unit, <%=unitCode %> :
+    <input type="number" name="desiredMarks" min="1" max="100" required />
+  </div>
+
+  <br />
+  <input type="submit" />
+  </form>
+
+  <% } else if (noOfAssessments==7){ %>
+
+    <form action="/finalPage" method="GET">
+    <div>
+      <h5>Assessment 1:</h5>
+      <li>
+        Percentage allocated for Assessment 1:
+        <input
+          type="number"
+          name="percAllocatedAss1"
+          min="1"
+          max="100"
+          required
+        />
+      </li>
+      <li>
+        Total marks allocated for Assessment 1:
+        <input type="number" name="marksAllocatedAss1" min="1" required />
+      </li>
+      <li>
+        Amount of marks obtained for Assessment 1:
+        <input type="number" name="marksObtainedAss1" min="1" required />
+      </li>
+  
+      <h5>Assessment 2:</h5>
+      <li>
+        Percentage allocated for Assessment 2:
+        <input
+          type="number"
+          name="percAllocatedAss2"
+          min="1"
+          max="100"
+          required
+        />
+      </li>
+  
+      <li>
+        Total marks allocated for Assessment 2:
+        <input type="number" name="marksAllocatedAss2" min="1" required />
+      </li>
+  
+      <li>
+        Amount of marks obtained for Assessment 2:
+        <input type="number" name="marksObtainedAss2" min="1" required />
+      </li>
+  
+      <h5>Assessment 3:</h5>
+      <li>
+        Percentage allocated for Assessment 3:
+        <input
+          type="number"
+          name="percAllocatedAss3"
+          min="1"
+          max="100"
+          required
+        />
+      </li>
+  
+      <li>
+        Total marks allocated for Assessment 3:
+        <input type="number" name="marksAllocatedAss3" min="1" required />
+      </li>
+  
+      <li>
+        Amount of marks obtained for Assessment 3:
+        <input type="number" name="marksObtainedAss3" min="1" required />
+      </li>
+  
+      <h5>Assessment 4:</h5>
+      <li>
+        Percentage allocated for Assessment 4:
+        <input
+          type="number"
+          name="percAllocatedAss4"
+          min="1"
+          max="100"
+          required
+        />
+      </li>
+  
+      <li>
+        Total marks allocated for Assessment 4:
+        <input type="number" name="marksAllocatedAss4" min="1" required />
+      </li>
+  
+      <li>
+        Amount of marks obtained for Assessment 4:
+        <input type="number" name="marksObtainedAss4" min="1" required />
+      </li>
+    </div>
+  
+    <h5>Assessment 5:</h5>
+      <li>
+        Percentage allocated for Assessment 5:
+        <input
+          type="number"
+          name="percAllocatedAss5"
+          min="1"
+          max="100"
+          required
+        />
+      </li>
+  
+      <li>
+        Total marks allocated for Assessment 5:
+        <input type="number" name="marksAllocatedAss5" min="1" required />
+      </li>
+  
+      <li>
+        Amount of marks obtained for Assessment 5:
+        <input type="number" name="marksObtainedAss5" min="1" required />
+      </li>
+    </div>
+  
+    <h5>Assessment 6:</h5>
+      <li>
+        Percentage allocated for Assessment 6:
+        <input
+          type="number"
+          name="percAllocatedAss6"
+          min="1"
+          max="100"
+          required
+        />
+      </li>
+  
+      <li>
+        Total marks allocated for Assessment 6:
+        <input type="number" name="marksAllocatedAss6" min="1" required />
+      </li>
+  
+      <li>
+        Amount of marks obtained for Assessment 6:
+        <input type="number" name="marksObtainedAss6" min="1" required />
+      </li>
+    </div>
+
+    <h5>Assessment 7:</h5>
+      <li>
+        Percentage allocated for Assessment 7:
+        <input
+          type="number"
+          name="percAllocatedAss7"
+          min="1"
+          max="100"
+          required
+        />
+      </li>
+  
+      <li>
+        Total marks allocated for Assessment 7:
+        <input type="number" name="marksAllocatedAss7" min="1" required />
+      </li>
+  
+      <li>
+        Amount of marks obtained for Assessment 7:
+        <input type="number" name="marksObtainedAss7" min="1" required />
+      </li>
+    </div>
+  
+    <br />
+    <div>
+      What is the total in-semester assessments worth in Percentage :
+      <input type="number" name="inSemesterPerc" min="1" max="100" required />
+    </div>
+  
+    <div>
+      Your desired final marks for the unit, <%=unitCode %> :
+      <input type="number" name="desiredMarks" min="1" max="100" required />
+    </div>
+  
+    <br />
+    <input type="submit" />
+    </form>
+  
+    <%} %>
+
