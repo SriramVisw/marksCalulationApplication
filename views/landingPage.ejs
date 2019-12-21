@@ -1,11 +1,30 @@
-<h1>Welcome to the Marks determining application.</h1>
+<head>
+  <link
+    href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/darkly/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-rCA2D+D9QXuP2TomtQwd+uP50EHjpafN+wruul0sXZzX/Da7Txn4tB9aLMZV4DZm"
+    crossorigin="anonymous"
+  />
+</head>
 
-<form action="/form" method="GET">
-  <li>Unit Code: <input type="text" name="unitCode" required /></li>
+<div class="jumbotron">
+  <h1 class="display-3">Welcome to the Marks Calculator Application!</h1>
+  <h4>Kindly fill out the details below to get redirected to the forms</h4>
+  <form action="/form" method="GET">
+  </br>
+    Unit Code: <input type="text" name="unitCode" required />
+  
+  </br>
+</br>
+      No of Assessments in the Unit:
+      <input type="number" name="noOfAssessments" min="1" max="7" required />
+      
+  </br>
+      <input type="submit" class="btn btn-primary" Submit/>
+    
+  </form>
+</div>
 
-  <li>
-    No of Assessments in the Unit:
-    <input type="number" name="noOfAssessments" min="1" max="7" required />
-    <input type="submit" />
-  </li>
-</form>
+
+
+
