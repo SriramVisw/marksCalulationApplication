@@ -1,7 +1,12 @@
 var express = require("express");
 var app = express();
 app.set("view engine", "ejs");
-require("locus");
+
+var favicon = require("serve-favicon");
+var path = require("path");
+app.use(express.static("public"));
+
+app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
 
 app.get("/", function(req, res) {
   res.render("landingPage");
@@ -21,20 +26,29 @@ app.get("/form", function(req, res) {
 app.get("/finalPage", function(req, res) {
   //need to calculate the marks based on all those parameters using if statements
   var marksArray = calculateMarks(req.query);
-  res.render("finalPage", { marksArray: marksArray });
+  if (marksArray[marksArray.length - 1] == 1) {
+    res.render("errorPage");
+  } else if (marksArray[marksArray.length - 2] == 1) {
+    res.render("failPage");
+  } else {
+    res.render("finalPage", { marksArray: marksArray });
+  }
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, function() {
-  console.log("The server has started!");
+app.get("/*", function(req, res) {
+  res.render("pageNotFound");
 });
+
+app.listen(process.env.PORT || 3000, process.env.IP);
 
 function calculateMarks(passedObject) {
-  //calculating the noOfassessments by finding the no of query parameters and subtracting 2 for the
-  // desired marks input and the in semester percentage input. Finally dividing the value by 3 (for each of the assessment infos) gives us
+  //calculating the noOfassessments by finding the no of query parameters and subtracting 3 for the
+  // desired marks input, in semester percentage input,in semester hurdle , the exam hurdle. Finally dividing the value by 3 (for each of the assessment infos) gives us
   // the no. of assessments
-  var noOfVariables = Object.keys(passedObject).length - 2;
+  var hurdle = parseInt(passedObject.hurdle, 10);
+  var noOfVariables = Object.keys(passedObject).length - 4;
   var noOfAssessments = noOfVariables / 3;
+  var examHurdle = parseInt(passedObject.examHurdle, 10);
 
   totalInSemesterPerc = parseInt(passedObject.inSemesterPerc, 10);
   exam_marks = 100 - totalInSemesterPerc;
@@ -69,10 +83,26 @@ function calculateMarks(passedObject) {
   for (var i = 0; i < noOfAssessments; i = i + 1) {
     your_total_marks =
       your_total_marks + (arr[i][2] / arr[i][1]) * (arr[i][0] / 100);
-    total_in_semester_perc = arr[i][0];
+    total_in_semester_perc = total_in_semester_perc + parseInt(arr[i][0], 10);
   }
 
+  //1 represents true and 0 represents false
+  var isFail = 0;
   your_total_marks = your_total_marks * 100;
+
+  if ((your_total_marks / total_in_semester_perc) * 100 < hurdle) {
+    isFail = 1;
+  }
+
+  var isError = 0;
+  if (total_in_semester_perc != parseInt(passedObject.inSemesterPerc, 10)) {
+    isError = 1;
+  }
+
+  // console.log(your_total_marks);
+  // console.log(total_in_semester_perc);
+  // console.log(isFail);
+  // console.log(isError);
 
   var desired_marks = parseInt(passedObject.desiredMarks, 10);
 
@@ -114,6 +144,10 @@ function calculateMarks(passedObject) {
         100
     )
   );
+
+  marksArray.push(examHurdle);
+  marksArray.push(isFail);
+  marksArray.push(isError);
 
   return marksArray;
 }

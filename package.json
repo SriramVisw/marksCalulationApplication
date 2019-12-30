@@ -1,23 +1,17 @@
 {
-  "name": "projectexpress",
+  "name": "markscalculationapplication",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
-  "engines": {
-    "node": "8.1.1",
-    "npm": "5.0.3"
-  },
   "scripts": {
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.0.1",
-    "express": "^4.17.1"
-  },
-  "devDependencies": {
-    "locus": "^2.0.4"
+    "express": "^4.17.1",
+    "serve-favicon": "^2.5.0"
   }
 }

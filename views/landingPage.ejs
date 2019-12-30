@@ -5,14 +5,21 @@
     integrity="sha384-rCA2D+D9QXuP2TomtQwd+uP50EHjpafN+wruul0sXZzX/Da7Txn4tB9aLMZV4DZm"
     crossorigin="anonymous"
   />
+  <title>Marks Calculator</title>
+  
+  <link
+    href="https://fonts.googleapis.com/css?family=Anton|Gelasio|Oswald|Teko&display=swap"
+    rel="stylesheet"
+  />
+  
 </head>
 
 <div class="jumbotron">
-  <h1 class="display-3">Welcome to the Marks Calculator Application!</h1>
-  <h4>Kindly fill out the details below to get redirected to the forms</h4>
+  <h1 class="display-3" style="font-family:Anton;">Welcome to the Marks Calculator Application!</h1>
+  <h4 style="font-family:Teko;">Kindly fill out the details below to get redirected to the forms</h4>
   <form action="/form" method="GET">
   </br>
-    Unit Code: <input type="text" name="unitCode" required />
+    Unit Code: <input type="text" name="unitCode" required pattern="[a-zA-Z0-9]+"  />  (Alpha Numeric Only)
   
   </br>
 </br>
@@ -21,7 +28,7 @@
       
     </br>
   </br>
-      <input type="submit" class="btn btn-primary" Submit/>
+      <input  type="submit" class="btn btn-primary" Submit/>
     
   </form>
 </div>

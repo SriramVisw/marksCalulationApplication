@@ -5,31 +5,59 @@
     integrity="sha384-rCA2D+D9QXuP2TomtQwd+uP50EHjpafN+wruul0sXZzX/Da7Txn4tB9aLMZV4DZm"
     crossorigin="anonymous"
   />
+  <title>Marks Calculator</title>
+  <link href="https://fonts.googleapis.com/css?family=Anton|Francois+One|Gelasio|Oswald|Alata|Teko&display=swap" rel="stylesheet">
+  
 </head>
 
 <div class="jumbotron">
-  <h6 class="display-3">Results:</h6>
+  <h6 class="display-3" style="font-family:Anton;" >Results:</h6>
 </div>
 
-<h3>
+<% if (marksArray[0]>=marksArray[marksArray.length-3] && marksArray[0]<=100){ %>
+<h3 style="font-family:Teko;">
   To obtain your target marks, you'll need <%=marksArray[0] %>% on the exam.
 </h3>
+<% } else{%>
+  <h3 style="font-family:Teko;">
+    Unfortunately, You cannot achieve your desired marks this semester. Better luck next time!
+  </h3>
+  <% } %>
+</br>
 
+<% if (marksArray[1]>=marksArray[marksArray.length-3] || marksArray[2]>=marksArray[marksArray.length-3] ||marksArray[3]>=marksArray[marksArray.length-3] ||marksArray[4]>=marksArray[marksArray.length-3]){ %>
+<h3 style="font-family:Teko;">Also, based on your in-semester marks, you can obtain the following grades: </h3>
 <ul>
+  <% if (marksArray[1]>=marksArray[marksArray.length-3] && marksArray[1]<=100){ %>
   <li>
     The percentage you need on the exam to at least get an HD: <%=marksArray[1]
     %>%
   </li>
+  <% } %> <% if (marksArray[2]>=marksArray[marksArray.length-3] && marksArray[2]<=100){ %>
   <li>
     The percentage you need on the exam to at least get an D: <%=marksArray[2]
     %>%
   </li>
+  <% } %> <% if (marksArray[3]>=marksArray[marksArray.length-3] && marksArray[3]<=100){ %>
   <li>
     The percentage you need on the exam to at least get an C: <%=
     marksArray[3]%>%
   </li>
+  <% } %> <% if (marksArray[4]>=marksArray[marksArray.length-3] && marksArray[4]<=100){ %>
   <li>
     The percentage you need on the exam to at least get an P: <%=marksArray[4]
     %>%
   </li>
+  <% } %>
 </ul>
+
+
+<% } %>
+<button
+  type="button"
+  class="btn btn-primary btn-sm"
+  onclick="window.location.href = '/';"
+  
+>
+  MAIN PAGE
+</button>
